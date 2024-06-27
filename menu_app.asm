@@ -11,7 +11,7 @@
 
 %define str_1_len 255  ; Preprocessor: Replace all instances of "str_1_len" with "255".
 
-section        .text
+section .text
 
 ; ===== procedure flushStdin ==================  ; Read and discard all characters from stdin until a newline.
 
@@ -425,7 +425,7 @@ main_invalid:
     jmp    main_loop               ; Return to menu.
 
 
-section     .data  ; Predefined strings used in printf.
+section .data  ; Predefined strings used in printf.
 
 print_int_fmt:
     db "%d", 10, 0
@@ -461,10 +461,10 @@ input_del_char_str:
     db "Input the character to delete...", 10, 0
 
 
-section     .bss  ; Preallocated variables used in procedures.
+section .bss  ; Preallocated variables used in procedures.
 
-int32_1:    resd 1
-int32_2:    resd 1
-int8_1:        resb 1
-int8_2:        resb 1
-str_1:        resb str_1_len
+int32_1: resd 1
+int32_2: resd 1
+int8_1:  resb 1
+int8_2:  resb 1
+str_1:   resb str_1_len

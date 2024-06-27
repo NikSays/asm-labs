@@ -1,4 +1,4 @@
-; This program reads a file using C stdio.h
+; This program reads the file named "input.txt" from current directory using C stdio.h
 
     global main             ; The resulting executable will run the C runtime, which will call main
 

@@ -12,8 +12,11 @@ Requires `nasm` and `gcc`.
 # Generate the object file
 nasm file.asm -o obj.o -f elf64
 
-# Link and generate the executable
-# If no stdlib functions are used, gcc may be replaced with ld
+# Link and generate the executable:
+
+# If label _start is defined (no stdlib used)
+ld obj.o -o out
+# If label main is defined (uses stdlib)
 gcc obj.o -o out -no-pie
 
 # Execute
@@ -26,10 +29,13 @@ Requires `nasm`, `gcc` and `dbg`.
 
 ```shell
 # Generate the object file, including debug info
-nasm file.asm -f elf64 -o obj.o -Fdwarf
+nasm file.asm -o obj.o -f elf64 -F dwarf
 
-# Link and generate the executable
-# If no stdlib functions are used, gcc may be replaced with ld
+# Link and generate the executable:
+
+# If label _start is defined (no stdlib used)
+ld obj.o -o out
+# If label main is defined (uses stdlib)
 gcc obj.o -o out -no-pie
 
 # Start debugger
